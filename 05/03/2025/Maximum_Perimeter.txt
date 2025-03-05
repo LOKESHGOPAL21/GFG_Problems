@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Maximum_Perimeter {
+    public static  int maxPerimeter(int[] arr) {
+        
+        if (arr == null || arr.length < 3) {
+            return -1; 
+        }
+        
+        
+        Arrays.sort(arr);
+        
+        
+        for (int i = arr.length - 1; i >= 2; i--) {
+            int a = arr[i];    
+            int b = arr[i-1];   
+            int c = arr[i-2];  
+            
+           
+            if (b + c > a && a + c > b && a + b > c) {
+                return a + b + c;
+            }
+        }
+        
+        return -1;
+    }
+
+    public static void main (String [] args){
+        int [] arr = {6, 1, 6, 5, 8, 4};
+        System.out.println(maxPerimeter(arr));
+    }
+}
